@@ -27,7 +27,7 @@ function displayNews(newsData) {
 
 document.addEventListener("DOMContentLoaded", fetchNews);
 
-function displayData() {
+function displayDate() {
   const dataElement = document.querySelector(".date-time");
   let date = new Date()
   let today = date.toLocaleDateString();
@@ -36,4 +36,4 @@ function displayData() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", displayData);
+document.addEventListener("DOMContentLoaded", displayDate);
