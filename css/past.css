@@ -1,16 +1,16 @@
-/* generated */
+/* css styles for the past.html */
 
-.news-container {
+.archive-news-container {
    max-width: 1200px;
    margin: 0 auto;
    padding: 20px;
 }
 
-.news-item {
+.archive-news-item {
    font-family: monospace;
 }
 
-.news-item::before {
+.archive-news-item::before {
    content: "";
    display: block;
    width: 100%;
@@ -19,7 +19,7 @@
    margin-top: 15px; 
  }
 
-.anchor-title {
+.archive-anchor-title {
    text-decoration: none;  
    color: white;
 }

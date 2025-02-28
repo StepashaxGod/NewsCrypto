@@ -1,9 +1,9 @@
 async function fetchNews() {
   try {
-    const cashValidity = 500000;
+    const cacheValidity = 500000;
     const cachedNews = localStorage.getItem("cashedNews");
     const newsTimeStamp = localStorage.getItem("newsTimeStamp");
-    if (cachedNews && newsTimeStamp && (Date.now() - newsTimeStamp < cashValidity)) {
+    if (cachedNews && newsTimeStamp && (Date.now() - newsTimeStamp < cacheValidity)) {
       const newsData = JSON.parse(cachedNews);
       displayNews(newsData.results);
     } else {
@@ -18,22 +18,43 @@ async function fetchNews() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", fetchNews);
-
 function displayNews(newsData) {
   const container = document.querySelector(".news-container");
-  container.innerHTML = "";
+  const archiveContainer = document.querySelector(".archive-news-container");
+
+  if (container) {
+    container.innerHTML = "";
+  }
+  if (archiveContainer) {
+    archiveContainer.innerHTML = "";
+  }
 
   newsData.forEach((news) => {
     const article = document.createElement("article");
+    const archiveArticle = document.createElement("article");
+
     article.classList.add("news-item");
+    archiveArticle.classList.add("archive-news-item");
 
     article.innerHTML = `
-       <h2><a class="anchor-title" href="${news.url}" target="_blank">${news.title}</a></h2>
-       <a>Source: ${news.source.title}</a> 
-       <p>Published: ${new Date(news.published_at).toLocaleString()}</p>
+      <h2><a class="anchor-title" href="${news.url}" target="_blank">${news.title}</a></h2>
+      <a>Source: ${news.source.title}</a> 
+      <p>Published: ${new Date(news.published_at).toLocaleString()}</p>
      `;
-    container.appendChild(article);
+    
+    archiveArticle.innerHTML = `
+      <h2><a class="archive-anchor-title" href="${news.url}" target="_blank">${news.title}</a></h2>
+      <a>Source: ${news.source.title}</a> 
+      <p>Published: ${new Date(news.published_at).toLocaleString()}</p>
+    `;
+
+    if (container) {
+      container.appendChild(article);
+    }
+    if (archiveContainer) {
+      archiveContainer.appendChild(archiveArticle);
+    }
+    
   });
 }
 
@@ -46,4 +67,7 @@ function displayDate() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", displayDate);
+document.addEventListener("DOMContentLoaded", () => {
+  displayDate();
+  fetchNews();
+});
