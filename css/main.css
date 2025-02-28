@@ -1,0 +1,31 @@
+/* generated */
+
+.news-container {
+   max-width: 1200px;
+   margin: 0 auto;
+   padding: 20px;
+}
+
+.news-item {
+   font-family: monospace;
+}
+
+.news-item::before {
+   content: "";
+   display: block;
+   width: 100%;
+   height: 1px; 
+   background-color: #ccc; 
+   margin-top: 15px; 
+ }
+
+.anchor-title {
+   text-decoration: none;  
+   color: white;
+}
+
+.news-item-bottom {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
