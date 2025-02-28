@@ -1,12 +1,24 @@
 async function fetchNews() {
   try {
-    const response = await fetch("http://localhost:3000/api/posts");
-    const data = await response.json();
-    displayNews(data.results);
+    const cashValidity = 500000;
+    const cachedNews = localStorage.getItem("cashedNews");
+    const newsTimeStamp = localStorage.getItem("newsTimeStamp");
+    if (cachedNews && newsTimeStamp && (Date.now() - newsTimeStamp < cashValidity)) {
+      const newsData = JSON.parse(cachedNews);
+      displayNews(newsData.results);
+    } else {
+      const response = await fetch("http://localhost:3000/api/posts");
+      const data = await response.json();
+      localStorage.setItem("cashedNews", JSON.stringify(data));
+      localStorage.setItem("newsTimeStamp", Date.now());
+      displayNews(data.results);
+    }
   } catch (error) {
     console.error(error);
   }
 }
+
+document.addEventListener("DOMContentLoaded", fetchNews);
 
 function displayNews(newsData) {
   const container = document.querySelector(".news-container");
@@ -24,8 +36,6 @@ function displayNews(newsData) {
     container.appendChild(article);
   });
 }
-
-document.addEventListener("DOMContentLoaded", fetchNews);
 
 function displayDate() {
   const dataElement = document.querySelector(".date-time");
