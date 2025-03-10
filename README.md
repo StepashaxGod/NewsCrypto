@@ -14,6 +14,8 @@
 - localstorage for the news(storing news and extracting them)
 
 - working with dates.
+- creating archive.js for generating past news and working with the past.html file, quite uncomfortable to have everything in app.js
+
 
 - creating the archive with news (DB and putting them on a separate page, ir trying to extract them from localstorage, but firstly have to understand how it works with the cryptoPanic API).
 
@@ -115,6 +117,8 @@ File Structure:
 
 
 - Development plan
-   Finish the past.html, figure out the localstorage use case with the pastNews displaying(possible moving on to the database) ==> Migrate from localStorage to a full-featured DB for archiving.
+   Finish the past.html, figure out the localstorage use case with the pastNews displaying(possible moving on to the database) ==> Migrate from localStorage to a full-featured DB for archiving, to have the queries for the past news, if possible.
 
 	Add user accounts, authentication.
+
+
