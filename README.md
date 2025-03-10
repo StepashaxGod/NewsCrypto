@@ -1,3 +1,26 @@
+## initial workflow
+- Create an html structure  (index.html) for the main news Page 
+
+- Create css styles (add styles to index.html)
+
+- Create static data to try out generating code (working with objects and trying out generating code)
+
+- Figuring out the API platforms provide (Found CryptoPanic for the api requests(at least i get the news from them for free, but the redirection id prohibited, the don't provide the path to the original source))
+
+- figuring out how to make the connection to their server via the node.js because cant test the CryptoPanic api because of the cors (setting up the express server)
+
+- establishing own server through the node.js via the express frame to avoid the cors (having a different localhost that allows me to retrieve data from third parties)
+
+- localstorage for the news(storing news and extracting them)
+
+- working with dates.
+
+- creating the archive with news (DB and putting them on a separate page, ir trying to extract them from localstorage, but firstly have to understand how it works with the cryptoPanic API).
+
+
+
+
+
 ## High level
 
 Architecture
