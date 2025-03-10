@@ -5,8 +5,7 @@ try {
     const newsTimeStamp = localStorage.getItem("newsTimeStamp");
     if (cachedNews && newsTimeStamp && (Date.now() - newsTimeStamp < cacheValidity)) {
       const newsData = JSON.parse(cachedNews);
-      console.log(newsData);
-      displayNews(newsData.results);
+      displayNews(newsData.results);  
     } else {
       const response = await fetch("http://localhost:3000/api/posts");
       const data = await response.json();
