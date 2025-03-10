@@ -17,6 +17,6 @@ app.get("/api/posts", async (req, res) => {
       console.error(error);
    }
 });
-      
-app.listen(PORT, () => console.log("server port: http://localhost:3000"));
 
+
+app.listen(PORT, () => console.log("server port: http://localhost:3000"));
