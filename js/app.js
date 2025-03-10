@@ -1,10 +1,11 @@
 async function fetchNews() {
-  try {
+try {
     const cacheValidity = 500000;
     const cachedNews = localStorage.getItem("cashedNews");
     const newsTimeStamp = localStorage.getItem("newsTimeStamp");
     if (cachedNews && newsTimeStamp && (Date.now() - newsTimeStamp < cacheValidity)) {
       const newsData = JSON.parse(cachedNews);
+      console.log(newsData);
       displayNews(newsData.results);
     } else {
       const response = await fetch("http://localhost:3000/api/posts");
@@ -60,12 +61,38 @@ function displayNews(newsData) {
 
 function displayDate() {
   const dataElement = document.querySelector(".date-time");
-  let date = new Date()
-  let today = date.toLocaleDateString();
-  if (today) {
-    dataElement.textContent = today;
-  }
+  const dataDateOutput = document.querySelector(".date-output");
+  const pastNews = document.querySelector(".past-news-date");
+
+  let data = new Date()
+  let today = data.toLocaleDateString();
+
+  let month = data.getMonth() + 1; 
+    let date = data.getDate();
+    let year = data.getFullYear();
+
+    if (today) {
+      dataElement.textContent = today;
+    }
+    
+    let output = `${month}/${date}/${year}`
+    dataDateOutput.textContent = output;
+
+    pastNews.addEventListener("click", () => {
+      let currentDate = new Date(year, month - 1, date);
+  
+      currentDate.setDate(currentDate.getDate() - 1);
+    
+      date = currentDate.getDate();
+      month = currentDate.getMonth() + 1; 
+      year = currentDate.getFullYear();
+    
+      dataDateOutput.textContent = `${month}/${date}/${year}`;
+    })
+
+
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   displayDate();

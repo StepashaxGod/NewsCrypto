@@ -24,3 +24,12 @@
    color: white;
 }
 
+/* dates manipulation*/
+
+.container-date {
+   margin-left: 30px;
+}
+
+.past-news-date {
+   color: white;
+}
