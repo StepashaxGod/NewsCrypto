@@ -18,7 +18,7 @@
 - creating archive.js for generating past news and working with the past.html file, quite uncomfortable to have everything in app.js
 
 - merging news(old news saving and getting them from localstorage), fetching news and comparing the id's (old.id new.id as key in the object to avoid duplicates) 
-
+- working on the archive file, displaying past news(based on the date).
 
 
 TO-DO:																																			DONE: 
@@ -29,7 +29,8 @@ Working with API and establishing a connection via the express server											
 Storing news in a localStorage of google chrome to avoid multiple api requests											√ (YES)
 Creating a archive.js file to work with the past.html:																			√ (YES)
 - (serves as the archive news page that asks for news from localstorage)													
-Merging news(with each request to api server, if new news received, adding them to localstorage)					(in process...)
+Merging news(with each request to api server, if new news received, adding them to localstorage)					√ (YES)
+Displaying past news from localStorage based ont the date 																		(in process...)
 
 
 ## High level
