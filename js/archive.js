@@ -1,3 +1,45 @@
+function displayPastNews(newsData) {
+  const filteredNews = sortNews(newsData);
+  const archiveContainer = document.querySelector('.archive-news-container');
+  if (archiveContainer) {
+    archiveContainer.innerHTML = '';
+  }
+
+  filteredNews.forEach((news) => {
+    const archiveArticle = document.createElement('article');
+
+    archiveArticle.classList.add('archive-news-item');
+
+    archiveArticle.innerHTML = `
+      <h2><a class="archive-anchor-title" href="${news.url}" target="_blank">${news.title}</a></h2>
+      <a>Source: ${news.source.title}</a> 
+      <p>Published: ${new Date(news.published_at).toLocaleString()}</p>
+    `;
+
+    if (archiveContainer) {
+      archiveContainer.appendChild(archiveArticle);
+    }
+  });
+}
+
+function sortNews(allNews) {
+
+  const dateOutputEl = document.querySelector('.date-output');
+  if (!dateOutputEl) {
+    return allNews;
+  }
+  const filterDateStr = dateOutputEl.textContent.trim();
+  const [month, day, year] = filterDateStr.split('/').map(Number);
+  const filterDate = new Date(year, month - 1, day);
+
+  return allNews.filter((news) => {
+    const publishedDate = new Date(news.published_at);
+    return publishedDate.getDate() === filterDate.getDate() &&
+      publishedDate.getMonth() === filterDate.getMonth() &&
+      publishedDate.getFullYear() === filterDate.getFullYear();
+  });
+}
+
 function displayPastDate() {
   const dataElement = document.querySelector(".date-time");
   const dataDateOutput = document.querySelector(".date-output");
@@ -5,35 +47,40 @@ function displayPastDate() {
 
   if (!dataDateOutput || !pastNews) {
     console.error("elements not found");
+    return;
   }
 
-  let data = new Date();
-  let today = data.toLocaleDateString();
+  let currentDate = new Date();
+  const today = currentDate.toLocaleDateString();
 
   if (today) {
     dataElement.textContent = today;
   }
 
-  let month = data.getMonth() + 1;
-  let date = data.getDate();
-  let year = data.getFullYear();
-
-  let output = `${month}/${date}/${year}`;
-  dataDateOutput.textContent = output;
+  let month = currentDate.getMonth() + 1;
+  let date = currentDate.getDate();
+  let year = currentDate.getFullYear();
+  dataDateOutput.textContent = `${month}/${date}/${year}`;
 
   pastNews.addEventListener("click", () => {
-    let currentDate = new Date(year, month - 1, date);
-
     currentDate.setDate(currentDate.getDate() - 1);
-
-    date = currentDate.getDate();
     month = currentDate.getMonth() + 1;
+    date = currentDate.getDate();
     year = currentDate.getFullYear();
 
-    dataDateOutput.textContent = `${month}/${date}/${year}`;
+    const updatedDate = `${month}/${date}/${year}`;
+    dataDateOutput.textContent = updatedDate;
+    dataElement.textContent = updatedDate;
+
+    if (window.mergedNews) {
+      displayPastNews(window.mergedNews);
+    }
   });
 }
+
 
 document.addEventListener("DOMContentLoaded", () => {
   displayPastDate();
 });
+
+
