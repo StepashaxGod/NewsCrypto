@@ -1,5 +1,5 @@
 function displayPastNews(newsData) {
-  const filteredNews = sortNews(newsData);
+  const filteredNews = sortNews(newsData); // filtered news by the date
   const archiveContainer = document.querySelector('.archive-news-container');
   if (archiveContainer) {
     archiveContainer.innerHTML = '';
@@ -28,11 +28,11 @@ function sortNews(allNews) {
   if (!dateOutputEl) {
     return allNews;
   }
-  const filterDateStr = dateOutputEl.textContent.trim();
-  const [month, day, year] = filterDateStr.split('/').map(Number);
-  const filterDate = new Date(year, month - 1, day);
+  const filterDateStr = dateOutputEl.textContent.trim(); // getting the date textContent
+  const [month, day, year] = filterDateStr.split('/').map(Number); // extracting the values
+  const filterDate = new Date(year, month - 1, day); // making it a proper date object 
 
-  return allNews.filter((news) => {
+  return allNews.filter((news) => { // returning an array of filtered news
     const publishedDate = new Date(news.published_at);
     return publishedDate.getDate() === filterDate.getDate() &&
       publishedDate.getMonth() === filterDate.getMonth() &&

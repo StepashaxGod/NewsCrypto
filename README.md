@@ -20,6 +20,10 @@
 - merging news(old news saving and getting them from localstorage), fetching news and comparing the id's (old.id new.id as key in the object to avoid duplicates) 
 - working on the archive file, displaying past news(based on the date).
 
+- creating a login.html with styles
+
+- creating logic for the login
+
 
 TO-DO:																																			DONE: 
 Create a simple html structure for the news (header - main page to display news)											√ (YES)
@@ -30,7 +34,12 @@ Storing news in a localStorage of google chrome to avoid multiple api requests		
 Creating a archive.js file to work with the past.html:																			√ (YES)
 - (serves as the archive news page that asks for news from localstorage)													
 Merging news(with each request to api server, if new news received, adding them to localstorage)					√ (YES)
-Displaying past news from localStorage based ont the date 																		(in process...)
+Displaying past news from localStorage based ont the date 																		√ (YES)
+Creating a login page login.html																											√ (YES)
+Logic for the login.html 																													(in process...)
+
+
+
 
 
 ## High level
@@ -39,6 +48,7 @@ Architecture
 	Client (Frontend):
 	   index.html serves as the main entry point.
       past.html as the past news display page.
+		login.html if the want ot log in
 	   A css/ folder contains style sheets.
 	   A js/ folder contains client-side scripts.
 	   An assets/ folder hosts images, icons, etc.
@@ -70,6 +80,9 @@ File Structure:
 
    past.html
       The `past.html` page is dedicated to displaying older (archived) news items. It can retrieve them from either localStorage or a more robust data store (like a database). The user can navigate to `past.html` to view headlines from previous days. This separation of archived news helps keep the main `index.html` focused on the latest updates.
+
+	login.html
+		Login page for the user if they desire to login, simple styles (email and password)	
 
 	css/:
 	   main.css contains core styles for the main page.
