@@ -1,7 +1,7 @@
 
 async function fetchNews() { // had to comment it out to make everything clear
   try {
-    const cacheValidity = 5000;  // the time before user sends a new request to an api server
+    const cacheValidity = 500000;  // the time before user sends a new request to an api server
     const cachedNews = localStorage.getItem("cachedNews");        
     const newsTimeStamp = localStorage.getItem("newsTimeStamp");  // retrieving news with dates from local storage
     if (  // if news found with a valid timeStamp(not less than 8.3 mins which is 500000 milliseconds)
@@ -20,9 +20,9 @@ async function fetchNews() { // had to comment it out to make everything clear
       existingNews = JSON.parse(cachedNews).results; // putting what we have in the localStorage in the existingNews
       }
       let mergedNews = mergeNews(existingNews, data.results);   // array of all news, old(from localStorage) and new(from new fetch (data.results))
+      mergedNews.sort((a, b) => new Date(b.published_at) - new Date(a.published_at));
       localStorage.setItem("cachedNews", JSON.stringify({ results: mergedNews }));  // on the first request or when the timeStamp is out of date we save them in a localStorage // always storing all the news in the localStorage
       localStorage.setItem("newsTimeStamp", Date.now());                             // on the first request or when cacheVAlidity is out we save timeStamp in a localStorage
-      mergedNews.sort((a, b) => new Date(b.published_at) - new Date(a.published_at)); // sorting all the news by the latest date
       displayNews(mergedNews);
     }
   } catch (error) {
