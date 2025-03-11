@@ -1,4 +1,5 @@
 ## initial workflow
+
 - Create an html structure  (index.html) for the main news Page 
 
 - Create css styles (add styles to index.html)
@@ -13,14 +14,22 @@
 
 - localstorage for the news(storing news and extracting them)
 
-- working with dates.
+- working with dates, thinking how to ask the localstorage for specific news, based on the date.
 - creating archive.js for generating past news and working with the past.html file, quite uncomfortable to have everything in app.js
 
-
-- creating the archive with news (DB and putting them on a separate page, ir trying to extract them from localstorage, but firstly have to understand how it works with the cryptoPanic API).
-
+- merging news(old news saving and getting them from localstorage), fetching news and comparing the id's (old.id new.id as key in the object to avoid duplicates) 
 
 
+
+TO-DO:																																			DONE: 
+Create a simple html structure for the news (header - main page to display news)											√ (YES)
+Create styles for the main page that it looks tidy for the user																√ (YES)
+Creating static news data as a array with necessary data like(header, publisher, date published, link)			√ (YES)
+Working with API and establishing a connection via the express server														√ (YES)
+Storing news in a localStorage of google chrome to avoid multiple api requests											√ (YES)
+Creating a archive.js file to work with the past.html:																			√ (YES)
+- (serves as the archive news page that asks for news from localstorage)													
+Merging news(with each request to api server, if new news received, adding them to localstorage)					(in process...)
 
 
 ## High level
@@ -81,6 +90,7 @@ File Structure:
       works with dates 
       selects the containers with dates and manipulates them, mostly seen in the past.html on the client side, when user wants to select previous dates.
 
+		archive.js (servers as the backend for the past.html, provides specific news, based on the date selected and filters the news based on the request).
       (functionality varies and will be divided in future).
 
 	assets/:
@@ -106,6 +116,8 @@ File Structure:
 
 	CORS Handling:
       Configuring express with the cors.
+
+	Testing, a few test will be written with jest framework in a separate file to check the connections, e.t.c.
 
    Security:
 	   (Don't know about it yet)
