@@ -32,18 +32,18 @@ app.get("/login", (req, res) => {
 app.post("/login", (req, res) => {
   const email = req.body["email-input"];
   const password = req.body["password-input"];
-  console.log("Получены данные логина:", email, password);
+  console.log("received email and password", email, password);
 
   
   if (email === "user@example.com" && password === "123456") {
     res.redirect("/dashboard");
   } else {
-    res.send('Неверный email или пароль. <a href="/login">Попробуйте снова</a>');
+    res.send('Incorrect email or password <a href="/login">Try again</a>');
   }
 });
 
 app.get("/dashboard", (req, res) => {
-  res.send("Добро пожаловать в Dashboard!");
+  res.send("Welcome to dashboard");
 });
 
 app.listen(PORT, () => console.log(`Server is running on http://localhost:${PORT}`));
