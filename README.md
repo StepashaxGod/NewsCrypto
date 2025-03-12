@@ -24,6 +24,7 @@
 
 - creating logic for the login
 
+- transmitting file to the server 3000
 
 TO-DO:																																			DONE: 
 Create a simple html structure for the news (header - main page to display news)											√ (YES)
@@ -36,7 +37,8 @@ Creating a archive.js file to work with the past.html:																			√ (YE
 Merging news(with each request to api server, if new news received, adding them to localstorage)					√ (YES)
 Displaying past news from localStorage based ont the date 																		√ (YES)
 Creating a login page login.html																											√ (YES)
-Logic for the login.html 																													(in process...)
+Logic for the login.html 																													(in process...)	
+transmitting files to server, so can utilize node.js																				(in process...)
 
 
 
