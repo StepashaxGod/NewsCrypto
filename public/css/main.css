@@ -6,6 +6,10 @@
    padding: 20px;
 }
 
+#user-display {
+   padding-right: 10px;
+}
+
 .news-item {
    font-family: monospace;
 }

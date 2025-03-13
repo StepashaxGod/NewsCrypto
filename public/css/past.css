@@ -10,6 +10,10 @@
    font-family: monospace;
 }
 
+#user-display {
+   padding-right: 10px;
+}
+
 .archive-news-item::before {
    content: "";
    display: block;

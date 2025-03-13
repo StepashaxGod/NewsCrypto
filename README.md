@@ -22,25 +22,27 @@
 
 - creating a login.html with styles
 
-- creating logic for the login
+- creating logic for the login (decided to keep it simple, store the users in a list)
 
 - transmitting file to the server 3000
 
+- creating a session for the user  
+
 TO-DO:																																			DONE: 
-Create a simple html structure for the news (header - main page to display news)											√ (YES)
-Create styles for the main page that it looks tidy for the user																√ (YES)
-Creating static news data as a array with necessary data like(header, publisher, date published, link)			√ (YES)
-Working with API and establishing a connection via the express server														√ (YES)
-Storing news in a localStorage of google chrome to avoid multiple api requests											√ (YES)
-Creating a archive.js file to work with the past.html:																			√ (YES)
+Create a simple html structure for the news (header - main page to display news)											√ (DONE)
+Create styles for the main page that it looks tidy for the user																√ (DONE)
+Creating static news data as a array with necessary data like(header, publisher, date published, link)			√ (DONE)
+Working with API and establishing a connection via the express server														√ (DONE)
+Storing news in a localStorage of google chrome to avoid multiple api requests											√ (DONE)
+Creating a archive.js file to work with the past.html:																			√ (DONE)
 - (serves as the archive news page that asks for news from localstorage)													
-Merging news(with each request to api server, if new news received, adding them to localstorage)					√ (YES)
-Displaying past news from localStorage based ont the date 																		√ (YES)
-Creating a login page login.html																											√ (YES)
+Merging news(with each request to api server, if new news received, adding them to localstorage)					√ (DONE)
+Displaying past news from localStorage based ont the date 																		√ (DONE)
+Creating a login page login.html																											√ (DONE)
 Logic for the login.html 																													(in process...)	
-transmitting files to server, so can utilize node.js																				(in process...)
-
-
+transmitting files to server, so can utilize node.js																				√ (DONE)
+Creating register form for the user																										√ (DONE)
+Creating a session(Cookie for the user)																								(in process...)
 
 
 
