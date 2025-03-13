@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({ path: './keys/keys.env' });
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -21,9 +21,10 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(session({
-  secret: 'key-code',
+  name: "cookie",
+  secret: process.env.sessionKey,
   resave: false,
-  saveUninitialized: false,
+  saveUninitialized: false, // only when the req.session.user = user (log in )
   cookie: {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',
@@ -32,6 +33,9 @@ app.use(session({
 }));
 
 const users = [];
+
+
+
 
 app.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'login.html'));
