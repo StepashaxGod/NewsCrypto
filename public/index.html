@@ -35,28 +35,5 @@
     <section class="news-container"></section>
 
     <script type="module" src="/js/app.js"></script>
-    <script>
-      fetch("/user")
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.loggedIn) {
-            const loginLink = document.querySelector(".login-link");
-            if (loginLink) {
-              loginLink.remove();
-            }
-
-            let userDisplay = document.getElementById("user-display");
-            if (!userDisplay) {
-              userDisplay = document.createElement("span");
-              userDisplay.id = "user-display";
-
-              const header = document.querySelector(".container-right");
-              header.appendChild(userDisplay);
-            }
-            userDisplay.textContent = data.nickname;
-          }
-        })
-        .catch((err) => console.error("Error!", err));
-    </script>
   </body>
 </html>

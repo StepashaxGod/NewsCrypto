@@ -43,7 +43,8 @@ Logic for the login.html 																													√ (DONE)
 transmitting files to server, so can utilize node.js																				√ (DONE)
 Creating register form for the user																										√ (DONE)
 Creating a session(Cookie for the user)																								√ (DONE)
-
+Create tests and utilize them 																											√ (in process...)
+trying to ensure that the software is safe 																							√ (in process...)
 
 
 ## High level

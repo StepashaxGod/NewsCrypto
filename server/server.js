@@ -3,7 +3,6 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
 const session = require("express-session");
-const fs = require("fs").promises;  
 
 const app = express();
 const PORT = 3000;
@@ -18,10 +17,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
 }));
-app.use((req, res, next) => {
-  console.log('Session data:', req.session);
-  next();
-});
+
 const users = [];
 
 app.get("/login", (req, res) => {
@@ -70,7 +66,7 @@ app.get("/user", (req, res) => {
   }
 });
 
-const API_KEY = 'e7fcfa7dbeba45e05c48d9e21d36328c94b23f37';
+const API_KEY = 'e7fcfa7dbeba45e05c48d9e21d36328c94b23f37'; // my personal apiKey 
 app.get("/api/posts", async (req, res) => {
   try {
     const apiUrl = `https://cryptopanic.com/api/v1/posts/?auth_token=${API_KEY}&public=true`;
