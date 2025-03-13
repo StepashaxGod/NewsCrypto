@@ -28,6 +28,12 @@
 
 - creating a session for the user  
 
+- implementing security measures(encryption, https)
+
+- test measures
+
+- deploying 
+
 TO-DO:																																			DONE: 
 Create a simple html structure for the news (header - main page to display news)											√ (DONE)
 Create styles for the main page that it looks tidy for the user																√ (DONE)
