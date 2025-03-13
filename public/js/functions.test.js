@@ -1,5 +1,5 @@
-const script = require("./login.js");
-const validateInputFormForTest = script.validateInputFormForTest;
+   const script = require("./login.js");
+   const validateInputFormForTest = script.validateInputFormForTest;
 
 test("if email: stepa@gmail.com and password: 123456", () => {
    expect(validateInputFormForTest("stepa@gmail.com", "123456")).toBe(true);  
