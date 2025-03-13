@@ -39,10 +39,10 @@ Creating a archive.js file to work with the past.html:																			√ (DO
 Merging news(with each request to api server, if new news received, adding them to localstorage)					√ (DONE)
 Displaying past news from localStorage based ont the date 																		√ (DONE)
 Creating a login page login.html																											√ (DONE)
-Logic for the login.html 																													(in process...)	
+Logic for the login.html 																													√ (DONE)	
 transmitting files to server, so can utilize node.js																				√ (DONE)
 Creating register form for the user																										√ (DONE)
-Creating a session(Cookie for the user)																								(in process...)
+Creating a session(Cookie for the user)																								√ (DONE)
 
 
 
