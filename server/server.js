@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(session({
   name: "cookie",
-  secret: process.env.sessionKey,
+  secret: process.env.sessionKey || "secretCodeHere123",
   resave: false,
   saveUninitialized: false, // only when the req.session.user = user (log in )
   cookie: {
@@ -35,7 +35,9 @@ app.use(session({
 const users = [];
 
 
-
+app.get("/index", (req, res) => { // made cause i can this function
+  res.sendFile(path.join(__dirname, '..', 'public', 'login.html'));
+});
 
 app.get("/login", (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'login.html'));
