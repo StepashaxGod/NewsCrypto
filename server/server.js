@@ -36,7 +36,7 @@ const users = [];
 
 
 app.get("/index", (req, res) => { // made cause i can this function
-  res.sendFile(path.join(__dirname, '..', 'public', 'login.html'));
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
 app.get("/login", (req, res) => {
