@@ -50,6 +50,7 @@ transmitting files to server, so can utilize node.js																				√ (DON
 Creating register form for the user																										√ (DONE)
 Creating a session(Cookie for the user)																								√ (DONE)
 Create tests and utilize them 																											√ (in process...)
+deployed and saw multiple mistakes, will create additional branch to work with the code								√ (in process...)
 trying to ensure that the software is safe 																							√ (DONE)
 
 
