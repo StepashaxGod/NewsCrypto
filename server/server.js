@@ -11,7 +11,7 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; // PORT for production or static
 
 app.use(cors());
 app.options("*", cors());

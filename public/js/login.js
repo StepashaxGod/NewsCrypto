@@ -27,7 +27,7 @@ if (typeof document !== "undefined") {
   }
 }
 
-function validateInputFormForTest(email, password) {
+function validateInputFormForTest(email, password) { // created a similar function for testing, turned out hard to test the one where u choose variables from html
   const emailFormat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const passwordFormat = /([a-zA-Z0-9]{6,})/;
 

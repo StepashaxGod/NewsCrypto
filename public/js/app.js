@@ -1,7 +1,7 @@
 async function fetchNews() {
   // had to comment it out to make everything clear
   try {
-    const cacheValidity = 500; // the time before user sends a new request to an api server (consider updating this value if needed)
+    const cacheValidity = 50000; // the time before user sends a new request to an api server (consider updating this value if needed)
     const cachedNews = localStorage.getItem("cachedNews");
     const newsTimeStamp = localStorage.getItem("newsTimeStamp"); // retrieving news with dates from local storage
     if (
